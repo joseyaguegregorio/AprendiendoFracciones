@@ -2,14 +2,25 @@ package principal;
 
 
 public class Fraccion {
+	
 	private int numerador;
 	private int denominador;
+	
 
 	public Fraccion(int numerador, int denominador) {
 		super();
 		this.numerador = numerador;
 		this.denominador = denominador;
 	}
+	
+	
+	
+	
+	public Fraccion() {
+			super();
+		}
+
+
 /*
  * 	Añadir las siguientes operaciones a Fracción
  * 
@@ -25,6 +36,7 @@ public class Fraccion {
 	public static Fraccion division(Fraccion sumando1, Fraccion sumando2) {
 	}
 */
+	
 	public int getNumerador() {
 		return numerador;
 	}
@@ -47,6 +59,15 @@ public class Fraccion {
 		StringBuilder sb = new StringBuilder();
 		sb.append(numerador).append(" / ").append(denominador);
 		return sb.toString();
+	}
+	
+	public Fraccion sumar(Fraccion e) {
+		Fraccion aux = new Fraccion();
+		aux.numerador = this.numerador * e.denominador+this.denominador * e.numerador;
+		aux.denominador = this.denominador * e.denominador;
+		return aux;
+		
+		
 	}
 
 }
