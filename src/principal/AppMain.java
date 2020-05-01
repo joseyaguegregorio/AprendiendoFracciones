@@ -40,7 +40,7 @@ public class AppMain {
 	
 		
 	//test mcd
-	Fraccion a = new Fraccion (54,14);
+	Fraccion a = new Fraccion (-54,14);
 	System.out.println("simplificar test1: "+CalculosMatematicos.simplificar(a).toString());;
 	
 	Fraccion b = new Fraccion (14,54);

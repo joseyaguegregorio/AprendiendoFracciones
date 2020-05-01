@@ -10,7 +10,10 @@ public class Fraccion {
 		this.numerador = numerador;
 		this.denominador = denominador;
 	}
-/*
+public Fraccion() {
+		// TODO Auto-generated constructor stub
+	}
+	/*
  * 	Añadir las siguientes operaciones a Fracción
  * 
  * 

@@ -90,8 +90,24 @@ public class CalculosMatematicos {
 	public static Fraccion simplificar(Fraccion a) {
 		int numerador = a.getNumerador();
 		int denominador = a.getDenominador();
+		Fraccion simplificada;
+		boolean esNegativo = false;
+		
+		if (numerador<0) {
+			esNegativo = true;
+			numerador = Math.abs(numerador);	
+		} else if (denominador<0){
+			esNegativo = true;
+			denominador = Math.abs(denominador);
+		}	
 		int mcd = mcd(numerador, denominador);
-		Fraccion simplificada = new Fraccion (numerador/mcd,denominador/mcd);
+		
+		if(esNegativo) {
+			simplificada = new Fraccion (numerador/mcd*-1,denominador/mcd);
+		}
+		else {
+			simplificada = new Fraccion (numerador/mcd,denominador/mcd);
+		}
 		return simplificada;
 	}
 	
@@ -114,6 +130,21 @@ public class CalculosMatematicos {
 		return mcm;	
 	}
 	
+	// fracción mayor, si a>=b devuelve true, si b>a devuelve false.
+	
+	public boolean esMayorIgual (Fraccion a, Fraccion b) {
+		boolean esMayorIgual = false;
+		double numeradorA = a.getNumerador();
+		double denominadorA = a.getDenominador();
+		double numeradorB = b.getNumerador();
+		double denominadorB = b.getDenominador();
+		
+		if((numeradorA/denominadorA)>=(numeradorB/denominadorB))
+			esMayorIgual=true;
+		
+		return esMayorIgual;			
+		
+	}
 	
 	
 }
