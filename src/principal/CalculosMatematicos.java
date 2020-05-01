@@ -67,5 +67,53 @@ public class CalculosMatematicos {
 		return primo;
 	}
 
+	// máximo común divisor
+	
+	public static int mcd(int a, int b) {
+		int mcd = 1;
+		if(a<b) {
+			int aux = a;
+			a = b;
+			b = aux;		
+		}
+		for(int i=1; i<=b; i++) {
+			if(a%i==0 && b%i==0){
+				mcd = i;
+			}	
+		}
+		return mcd;
+	}
+	
+	
+	// simplificar fracciones
+	
+	public static Fraccion simplificar(Fraccion a) {
+		int numerador = a.getNumerador();
+		int denominador = a.getDenominador();
+		int mcd = mcd(numerador, denominador);
+		Fraccion simplificada = new Fraccion (numerador/mcd,denominador/mcd);
+		return simplificada;
+	}
+	
+	
+	//mínimo común múltiplo
+	
+	public static int mcm(int a, int b) {
+		int mcm = 1;
+		int multiplicacion = a*b;
+		if(a<b) {
+			int aux = a;
+			a = b;
+			b = aux;		
+		}
+		for (int i = multiplicacion; i>=a; i--) {
+			if(i%a==0 && i%b==0) {
+				mcm = i;
+			}
+		}
+		return mcm;	
+	}
+	
+	
 	
 }
