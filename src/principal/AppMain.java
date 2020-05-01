@@ -1,10 +1,13 @@
 package principal;
 
 import java.io.IOException;
+
 import java.util.Map;
 
 import java.util.SortedMap;
 import java.util.TreeMap;
+
+import javax.swing.JOptionPane;
 
 
 public class AppMain {
@@ -55,10 +58,32 @@ public class AppMain {
 	System.out.println("mcm test3: "+CalculosMatematicos.mcm(13, 7));
 	System.out.println("");
 	
+	//fin tests pedro
+		
+	
+	
+	//Test Marco
+	//Test Suma
+	
+	Fraccion a1 = new Fraccion(14,4);
+	Fraccion a2 = new Fraccion(27,16);
+	
+	System.out.println("Suma de Fracciones "+ Fraccion.sumar(a1, a2));
+	
+	//Test Resta
+	
+	System.out.println("Resta de Fracciones "+ Fraccion.restar(a1, a2));
+	
+	//Test Multiplicación
+	System.out.println("La multiplicación es "+ Fraccion.multiplicacion(a1, a2));
+	
+	//Test División 
+	System.out.println("La división es "+ Fraccion.division(a1, a2));
+	
+	
 	
 	
 	}
-	
-	//fin tests pedro
+
 
 }
