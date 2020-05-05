@@ -1,33 +1,25 @@
 package principal;
 
 
+
 public class Fraccion {
+	
 	private int numerador;
 	private int denominador;
+	
 
 	public Fraccion(int numerador, int denominador) {
 		super();
 		this.numerador = numerador;
 		this.denominador = denominador;
 	}
-public Fraccion() {
-		// TODO Auto-generated constructor stub
-	}
-	/*
- * 	Añadir las siguientes operaciones a Fracción
- * 
- * 
- * 
-	public static Fraccion simplifica(Fraccion entrada) {
-	}
+
 	
-	public static Fraccion suma(Fraccion sumando1, Fraccion sumando2) {
-	}
-	public static Fraccion multiplicacion(Fraccion sumando1, Fraccion sumando2) {
-	}
-	public static Fraccion division(Fraccion sumando1, Fraccion sumando2) {
-	}
-*/
+	public Fraccion() {
+			super();
+		}
+
+	
 	public int getNumerador() {
 		return numerador;
 	}
@@ -51,5 +43,76 @@ public Fraccion() {
 		sb.append(numerador).append(" / ").append(denominador);
 		return sb.toString();
 	}
+	
+	//Suma de Fracciones
+	
+	public static Fraccion sumar(Fraccion a, Fraccion b) {
+		Fraccion aux = new Fraccion();
+		aux.numerador = a.numerador * b.denominador + a.denominador * b.numerador;
+		aux.denominador = a.denominador * b.denominador;
+		
+		return CalculosMatematicos.simplificar(aux);
+
+	}
+	
+	//Resta de Fracciones
+	
+	public static Fraccion restar(Fraccion a, Fraccion b) {
+		Fraccion aux = new Fraccion();
+		aux.numerador = a.numerador * b.denominador - a.denominador * b.numerador;
+		aux.denominador = a.denominador * b.denominador;
+	
+		return CalculosMatematicos.simplificar(aux);
+		
+	}
+	
+	//Multiplicacion de Fracciones
+	
+	public static Fraccion multiplicacion(Fraccion a, Fraccion b) {
+		Fraccion aux = new Fraccion ();
+		aux.numerador = a.numerador * b.numerador;
+		aux.denominador = a.denominador * b.denominador;
+		
+		return CalculosMatematicos.simplificar(aux);
+	}
+	
+	//Divisi�n de Fracciones
+	
+	public static Fraccion division(Fraccion a, Fraccion b) {
+		Fraccion aux = new Fraccion();
+		aux.numerador = a.numerador * b.denominador;
+		aux.denominador = a.denominador * b.numerador;
+		
+		return CalculosMatematicos.simplificar(aux);
+		
+	} 
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
