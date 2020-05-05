@@ -123,5 +123,9 @@ public class VentanaModelo extends JFrame {
 		JButton botonNuevoEjercicio = new JButton("Siguiente");
 		botonNuevoEjercicio.setBounds(360, 233, 84, 39);
 		contentPane.add(botonNuevoEjercicio);
+		
+		JButton botonComprobar = new JButton("Comprobar");
+		botonComprobar.setBounds(360, 19, 84, 39);
+		contentPane.add(botonComprobar);
 	}
 }
