@@ -70,7 +70,7 @@ public class CalculosMatematicos {
 		return primo;
 	}
 
-	// máximo común divisor
+	// maximo comun divisor
 	
 	public static int mcd(int a, int b) {
 		int mcd = 1;
@@ -115,7 +115,7 @@ public class CalculosMatematicos {
 	}
 	
 	
-	//mínimo común múltiplo
+	//minimo comun multiplo
 	
 	public static int mcm(int a, int b) {
 		int mcm = 1;
@@ -133,7 +133,7 @@ public class CalculosMatematicos {
 		return mcm;	
 	}
 	
-	// fracción mayor, si a>=b devuelve true, si b>a devuelve false.
+	// fraccion mayor, si a>=b devuelve true, si b>a devuelve false.
 	
 	public static boolean esMayorIgual (Fraccion a, Fraccion b) {
 		boolean esMayorIgual = false;
@@ -156,7 +156,7 @@ public class CalculosMatematicos {
 		
 		switch(dificultad) {
 		//ojo con las tildes!!!!
-		case "fácil":
+		case "facil":
 			//Fracciones con denominador y numerador de 1 a 10.
 			fraccion.setNumerador((int) (Math.random()*10)+1);
 			fraccion.setDenominador((int) (Math.random()*10)+1);
@@ -166,7 +166,7 @@ public class CalculosMatematicos {
 			fraccion.setNumerador((int) (Math.random()*10+10));
 			fraccion.setDenominador((int) (Math.random()*10+10));
 			break;
-		case "difícil":
+		case "dificil":
 			//Fracciones de 20 a 50.
 			fraccion.setNumerador((int) (Math.random()*30+20));
 			fraccion.setDenominador((int) (Math.random()*30+20));
@@ -183,7 +183,7 @@ public class CalculosMatematicos {
 		a = CalculosMatematicos.crearFraccion(dificultad);
 		b = CalculosMatematicos.crearFraccion(dificultad);
 		
-		//Se calcula el resultado en función del tipo de operación.
+		//Se calcula el resultado en funciï¿½n del tipo de operaciï¿½n.
 		switch(tipo) {
 		case "suma":
 			signo = "+";
@@ -200,18 +200,18 @@ public class CalculosMatematicos {
 			resultado = Fraccion.restar(a, b);
 			resultado = CalculosMatematicos.simplificar(resultado);		
 		break;	
-		case "multiplicación"://ojo con las tíldes!!!!
+		case "multiplicacion"://ojo con las tï¿½ldes!!!!
 			signo = "x";
 			resultado = Fraccion.multiplicacion(a, b);
 			resultado = CalculosMatematicos.simplificar(resultado);		
 		break;	
-		case "división"://ojo con las tíldes!!!!
+		case "division"://ojo con las tï¿½ldes!!!!
 			signo = ":";
 			resultado = Fraccion.division(a, b);
 			resultado = CalculosMatematicos.simplificar(resultado);		
 		break;
 		}	
-		//Se añaden los datos al HashMap.
+		//Se anaden los datos al HashMap.
 		ejercicio.put("signo", signo); //String
 		ejercicio.put("fraccionA", a); //Fraccion
 		ejercicio.put("fraccionB", b); //Fraccion
