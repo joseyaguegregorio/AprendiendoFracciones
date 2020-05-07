@@ -135,9 +135,9 @@ public class VentanaModelo extends JFrame {
 		simboloOperacion.setText(((String) (ejercicio.get("signo"))));
 		//Faltaria la parte de marco 
 		numeradorResultado.setText(((Fraccion) (ejercicio.get("resultado"))).getNumerador() + "");
-		denominadorResultado.setText(((Fraccion) (ejercicio.get("resultado"))).getNumerador() + "");
+		denominadorResultado.setText(((Fraccion) (ejercicio.get("resultado"))).getDenominador() + "");
 		
-		
+		setTitle(((String) (ejercicio.get("tipo"))));
 
 		JButton botonNuevoEjercicio = new JButton("Siguiente");
 		botonNuevoEjercicio.addActionListener(new ActionListener() {

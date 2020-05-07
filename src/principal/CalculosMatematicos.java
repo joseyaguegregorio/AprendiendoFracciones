@@ -189,6 +189,7 @@ public class CalculosMatematicos {
 			signo = "+";
 			resultado = Fraccion.sumar(a, b);
 			resultado = CalculosMatematicos.simplificar(resultado);		
+			tipo = "Suma";
 		break;		
 		case "resta":
 			signo = "-";
@@ -198,17 +199,20 @@ public class CalculosMatematicos {
 				b = aux;
 			} 
 			resultado = Fraccion.restar(a, b);
-			resultado = CalculosMatematicos.simplificar(resultado);		
+			resultado = CalculosMatematicos.simplificar(resultado);	
+			tipo = "Resta";
 		break;	
 		case "multiplicacion"://ojo con las t�ldes!!!!
 			signo = "x";
 			resultado = Fraccion.multiplicacion(a, b);
-			resultado = CalculosMatematicos.simplificar(resultado);		
+			resultado = CalculosMatematicos.simplificar(resultado);	
+			tipo = "Multiplicacion";
 		break;	
 		case "division"://ojo con las t�ldes!!!!
 			signo = ":";
 			resultado = Fraccion.division(a, b);
-			resultado = CalculosMatematicos.simplificar(resultado);		
+			resultado = CalculosMatematicos.simplificar(resultado);	
+			tipo = "Division";
 		break;
 		}	
 		//Se anaden los datos al HashMap.
