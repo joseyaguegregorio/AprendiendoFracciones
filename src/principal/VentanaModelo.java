@@ -41,6 +41,7 @@ public class VentanaModelo extends JFrame {
 	 * Create the frame.
 	 */
 	public VentanaModelo() {
+		
 		setTitle("Suma");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -49,6 +50,7 @@ public class VentanaModelo extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		this.setLocationRelativeTo(null);
 		
 		JLabel numerador1 = new JLabel("1");
 		numerador1.setFont(new Font("Dialog", Font.PLAIN, 37));
