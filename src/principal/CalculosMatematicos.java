@@ -1,10 +1,13 @@
 package principal;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
 public class CalculosMatematicos {
+	
+	
 	public static boolean esPar(int numero) {
 		return numero % 2 == 0;
 	}
@@ -132,7 +135,7 @@ public class CalculosMatematicos {
 	
 	// fracción mayor, si a>=b devuelve true, si b>a devuelve false.
 	
-	public boolean esMayorIgual (Fraccion a, Fraccion b) {
+	public static boolean esMayorIgual (Fraccion a, Fraccion b) {
 		boolean esMayorIgual = false;
 		double numeradorA = a.getNumerador();
 		double denominadorA = a.getDenominador();
@@ -146,6 +149,77 @@ public class CalculosMatematicos {
 		
 	}
 	
+	//crear fraccion random
 	
+	public static Fraccion crearFraccion (String dificultad) {
+		Fraccion fraccion = new Fraccion();
+		
+		switch(dificultad) {
+		//ojo con las tildes!!!!
+		case "fácil":
+			//Fracciones con denominador y numerador de 1 a 10.
+			fraccion.setNumerador((int) (Math.random()*10)+1);
+			fraccion.setDenominador((int) (Math.random()*10)+1);
+			break;
+		case "medio":
+			//Fracciones de 11 a 20.
+			fraccion.setNumerador((int) (Math.random()*10+10));
+			fraccion.setDenominador((int) (Math.random()*10+10));
+			break;
+		case "difícil":
+			//Fracciones de 20 a 50.
+			fraccion.setNumerador((int) (Math.random()*30+20));
+			fraccion.setDenominador((int) (Math.random()*30+20));
+			break;
+		}
+		return fraccion;
+	}
+	
+	public static HashMap<String, Object> crearEjercicio (String tipo, String dificultad) {
+		HashMap<String, Object> ejercicio = new HashMap<String, Object>();
+		Fraccion a, b, resultado = null;
+		String signo ="";
+		//generar las fracciones a y b
+		a = CalculosMatematicos.crearFraccion(dificultad);
+		b = CalculosMatematicos.crearFraccion(dificultad);
+		
+		//Se calcula el resultado en función del tipo de operación.
+		switch(tipo) {
+		case "suma":
+			signo = "+";
+			resultado = Fraccion.sumar(a, b);
+			resultado = CalculosMatematicos.simplificar(resultado);		
+		break;		
+		case "resta":
+			signo = "-";
+			if (CalculosMatematicos.esMayorIgual(b, a)) {
+				Fraccion aux = b;
+				a = b;
+				b = aux;
+			} 
+			resultado = Fraccion.restar(a, b);
+			resultado = CalculosMatematicos.simplificar(resultado);		
+		break;	
+		case "multiplicación"://ojo con las tíldes!!!!
+			signo = "x";
+			resultado = Fraccion.multiplicacion(a, b);
+			resultado = CalculosMatematicos.simplificar(resultado);		
+		break;	
+		case "división"://ojo con las tíldes!!!!
+			signo = ":";
+			resultado = Fraccion.division(a, b);
+			resultado = CalculosMatematicos.simplificar(resultado);		
+		break;
+		}	
+		//Se añaden los datos al HashMap.
+		ejercicio.put("signo", signo); //String
+		ejercicio.put("fraccionA", a); //Fraccion
+		ejercicio.put("fraccionB", b); //Fraccion
+		ejercicio.put("resultado", resultado); //Fraccion
+		ejercicio.put("tipo", tipo); //String
+		ejercicio.put("dificultad", dificultad); //String
+				
+		return ejercicio;
+	}
 	
 }
