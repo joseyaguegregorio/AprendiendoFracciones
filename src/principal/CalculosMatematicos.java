@@ -146,6 +146,23 @@ public class CalculosMatematicos {
 		
 	}
 	
+	// Compara si la fraccion del usuario es correcta
 	
+	public boolean sonIguales(Fraccion resultado, String numerador, String denominador) {
+	
+	   	 boolean sonIguales;
+	   	 
+	   	 if((resultado.getNumerador() == Integer.parseInt(numerador)) && (resultado.getDenominador() == Integer.parseInt(denominador))) {
+	   		  sonIguales = true;
+	   		  
+	   	 }else {
+	   		 
+	   		  sonIguales = false;
+	   		  
+	   	 }
+	   	 
+	   return sonIguales;
+	   	 
+	}	
 	
 }
