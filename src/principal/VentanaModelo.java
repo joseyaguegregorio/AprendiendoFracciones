@@ -7,6 +7,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.GridLayout;
 import javax.swing.BoxLayout;
 import javax.swing.SwingConstants;
@@ -106,14 +108,14 @@ public class VentanaModelo extends JFrame {
 		separador3.setFont(new Font("Dialog", Font.PLAIN, 37));
 		separador3.setBounds(307, 99, 98, 39);
 		contentPane.add(separador3);
-		numeradorResultado.setText("1");
+		numeradorResultado.setText("");
 		numeradorResultado.setHorizontalAlignment(SwingConstants.CENTER);
 		numeradorResultado.setFont(new Font("Dialog", Font.PLAIN, 37));
 		numeradorResultado.setBounds(318, 70, 74, 56);
 		contentPane.add(numeradorResultado);
 		numeradorResultado.setColumns(10);
 		denominadorResultado.setHorizontalAlignment(SwingConstants.CENTER);
-		denominadorResultado.setText("2");
+		denominadorResultado.setText("");
 		denominadorResultado.setFont(new Font("Dialog", Font.PLAIN, 37));
 		denominadorResultado.setColumns(10);
 		denominadorResultado.setBounds(317, 150, 74, 56);
@@ -126,44 +128,42 @@ public class VentanaModelo extends JFrame {
 		contentPane.add(labelResultado);
 		labelResultado.setVisible(false);
 
-		
 //Creacion primer del ejercicio		
-		
+
 		ejercicio = CalculosMatematicos.crearEjercicio(tipo, "facil");
 		numerador1.setText(((Fraccion) (ejercicio.get("fraccionA"))).getNumerador() + "");
 		numerador2.setText(((Fraccion) (ejercicio.get("fraccionB"))).getNumerador() + "");
 		denominador1.setText(((Fraccion) (ejercicio.get("fraccionA"))).getDenominador() + "");
 		denominador2.setText(((Fraccion) (ejercicio.get("fraccionB"))).getDenominador() + "");
 		simboloOperacion.setText(((String) (ejercicio.get("signo"))));
+//Si quereis hacer test aqui los resultados en interfaz
+//		numeradorResultado.setText(((Fraccion) (ejercicio.get("resultado"))).getNumerador() + "");
+//		denominadorResultado.setText(((Fraccion) (ejercicio.get("resultado"))).getDenominador() + "");
 
-		numeradorResultado.setText(((Fraccion) (ejercicio.get("resultado"))).getNumerador() + "");
-		denominadorResultado.setText(((Fraccion) (ejercicio.get("resultado"))).getDenominador() + "");
-		
 		setTitle(((String) (ejercicio.get("tipo"))));
-		fracccionResultado = (Fraccion)ejercicio.get("resultado");
+		fracccionResultado = (Fraccion) ejercicio.get("resultado");
 
-		
 		botonResultado.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (vistaResultado) {
-					mostrarEjercicio();
-				} else {
-					mostrarResultado();
+				try {
 					
+					if (vistaResultado) {
+						mostrarEjercicio();
+					} else {
+						mostrarResultado();
+
+					}
+
+				} catch (Exception e2) {
+					System.out.println("Debe de introducir un valor correcto, propongo otro ejercicio");
+					mostrarEjercicio();
 				}
-				
-				
+
 			}
 		});
 
-		
 	}
-	
-	
-	
-	
-	
-	
+
 	public void ocultarElementos() {
 		numerador1.setVisible(false);
 		numerador2.setVisible(false);
@@ -176,9 +176,9 @@ public class VentanaModelo extends JFrame {
 		separador2.setVisible(false);
 		separador3.setVisible(false);
 		simboloIgual.setVisible(false);
-		
+
 	}
-	
+
 	public void mostrarElementos() {
 		numerador1.setVisible(true);
 		numerador2.setVisible(true);
@@ -192,23 +192,25 @@ public class VentanaModelo extends JFrame {
 		separador3.setVisible(true);
 		simboloIgual.setVisible(true);
 	}
-	public void mostrarResultado(){
-		
+
+	public void mostrarResultado() {
+
 		ocultarElementos();
 		labelResultado.setVisible(true);
 		botonResultado.setText("Siguiente");
-		System.out.println(numeradorResultado.getText());
-		System.out.println(denominadorResultado.getText());
-		if (CalculosMatematicos.sonIguales(fracccionResultado, numeradorResultado.getText(), denominadorResultado.getText())) {
+		if (CalculosMatematicos.sonIguales(fracccionResultado, numeradorResultado.getText(),
+				denominadorResultado.getText())) {
 			labelResultado.setText("Correcto!");
-		}else {
-			labelResultado.setText("Incorrecto, el resultado es \n" + fracccionResultado.getNumerador()+"/"+fracccionResultado.getDenominador() );
+		} else {
+			labelResultado.setText("Incorrecto, el resultado es \n" + fracccionResultado.getNumerador() + "/"
+					+ fracccionResultado.getDenominador());
 		}
 		vistaResultado = true;
-		
+
 	}
+
 	public void mostrarEjercicio() {
-		
+
 		labelResultado.setVisible(false);
 		botonResultado.setText("Resultado");
 		ejercicio = CalculosMatematicos.crearEjercicio(tipo, "facil");
@@ -218,12 +220,12 @@ public class VentanaModelo extends JFrame {
 		denominador1.setText(((Fraccion) (ejercicio.get("fraccionA"))).getDenominador() + "");
 		denominador2.setText(((Fraccion) (ejercicio.get("fraccionB"))).getDenominador() + "");
 		simboloOperacion.setText(((String) (ejercicio.get("signo"))));
+//Si quereis hacer test aqui los resultados en interfaz
+//		numeradorResultado.setText(((Fraccion) (ejercicio.get("resultado"))).getNumerador() + "");
+//		denominadorResultado.setText(((Fraccion) (ejercicio.get("resultado"))).getDenominador() + "");
 
-		numeradorResultado.setText(((Fraccion) (ejercicio.get("resultado"))).getNumerador() + "");
-		denominadorResultado.setText(((Fraccion) (ejercicio.get("resultado"))).getDenominador() + "");
-		
 		setTitle(((String) (ejercicio.get("tipo"))));
-		fracccionResultado = (Fraccion)ejercicio.get("resultado");
+		fracccionResultado = (Fraccion) ejercicio.get("resultado");
 		mostrarElementos();
 		vistaResultado = false;
 	}
