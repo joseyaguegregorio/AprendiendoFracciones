@@ -184,7 +184,7 @@ public class CalculosMatematicos {
 		a = CalculosMatematicos.crearFraccion(dificultad);
 		b = CalculosMatematicos.crearFraccion(dificultad);
 		
-		//Se calcula el resultado en funci�n del tipo de operaci�n.
+		//Se calcula el resultado en funcion del tipo de operacion.
 		switch(tipo) {
 		case "suma":
 			signo = "+";
@@ -203,13 +203,13 @@ public class CalculosMatematicos {
 			resultado = CalculosMatematicos.simplificar(resultado);	
 			tipo = "Resta";
 		break;	
-		case "multiplicacion"://ojo con las t�ldes!!!!
+		case "multiplicacion"://ojo con las tildes!!!!
 			signo = "x";
 			resultado = Fraccion.multiplicacion(a, b);
 			resultado = CalculosMatematicos.simplificar(resultado);	
 			tipo = "Multiplicacion";
 		break;	
-		case "division"://ojo con las t�ldes!!!!
+		case "division"://ojo con las tildes!!!!
 			signo = ":";
 			resultado = Fraccion.division(a, b);
 			resultado = CalculosMatematicos.simplificar(resultado);	
@@ -229,14 +229,14 @@ public class CalculosMatematicos {
 
 	// Compara si la fraccion del usuario es correcta
 	
-	public boolean sonIguales(Fraccion resultado, String numerador, String denominador) {
+	public static boolean sonIguales(Fraccion resultado, String numerador, String denominador) {
 	
 	   	 boolean sonIguales;
 	   	 
 	   	 if((resultado.getNumerador() == Integer.parseInt(numerador)) && (resultado.getDenominador() == Integer.parseInt(denominador))) {
-	   		  sonIguales = true;
-	   		  
-	   	 }else {
+	   		sonIguales = true;
+	   	 }
+	   	else {
 	   		 
 	   		  sonIguales = false;
 	   		  
