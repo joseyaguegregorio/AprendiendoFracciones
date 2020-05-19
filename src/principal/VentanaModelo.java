@@ -120,7 +120,7 @@ public class VentanaModelo extends JFrame {
 		denominadorResultado.setColumns(10);
 		denominadorResultado.setBounds(317, 150, 74, 56);
 		contentPane.add(denominadorResultado);
-		botonResultado.setBounds(360, 233, 84, 39);
+		botonResultado.setBounds(346, 233, 98, 39);
 		contentPane.add(botonResultado);
 		labelResultado.setHorizontalAlignment(SwingConstants.CENTER);
 		labelResultado.setVerticalAlignment(SwingConstants.TOP);
@@ -214,6 +214,8 @@ public class VentanaModelo extends JFrame {
 		labelResultado.setVisible(false);
 		botonResultado.setText("Resultado");
 		ejercicio = CalculosMatematicos.crearEjercicio(tipo, "facil");
+		denominadorResultado.setText("");
+		numeradorResultado.setText("");
 
 		numerador1.setText(((Fraccion) (ejercicio.get("fraccionA"))).getNumerador() + "");
 		numerador2.setText(((Fraccion) (ejercicio.get("fraccionB"))).getNumerador() + "");
